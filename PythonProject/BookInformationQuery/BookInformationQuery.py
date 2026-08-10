@@ -79,7 +79,7 @@ async def root():
     """根路径，返回欢迎信息"""
     return {"message":'欢迎使用图书信息查询系统'}
 
-@app.get("/books", response_class=list[Book], summary='获取图书列表')
+@app.get("/books", response_model=list[Book], summary='获取图书列表')
 async def get_books():
     """获取所有图书列表"""
     print("获取图书列表...")
@@ -90,4 +90,5 @@ async def get_books_count():
     """获取图书总数"""
     return {"total":len(books)}
 
-
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
