@@ -72,3 +72,9 @@ books = [
     Book(id=2, name="数据结构与算法", author="李四", price=49.9, stock=5),
     Book(id=3, name="计算机网络", author="王五", price=29.9, stock=8),
 ]
+
+
+@app.get("/")
+async def root():
+    """根路径，返回欢迎信息"""
+    return {"message":'欢迎使用图书信息查询系统'}
