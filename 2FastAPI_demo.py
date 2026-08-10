@@ -4,6 +4,13 @@ from fastapi import FastAPI
 
 app = FastAPI()
 
+class User(BaseModel):
+    id: str
+    name: str
+    age: int | None = None
+
+
+
 @app.get("/users")
 def read_users():
     return [
