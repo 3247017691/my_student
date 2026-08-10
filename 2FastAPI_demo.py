@@ -10,7 +10,6 @@ class User(BaseModel):
     age: int | None = None
 
 
-
 @app.get("/users")
 def read_users():
     return [
