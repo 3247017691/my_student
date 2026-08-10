@@ -78,3 +78,11 @@ books = [
 async def root():
     """根路径，返回欢迎信息"""
     return {"message":'欢迎使用图书信息查询系统'}
+
+@app.get("/boos", response_class=list[Book], summary='获取图书列表')
+async def get_books():
+    '''获取所有图书列表'''
+    print("获取图书列表...")
+    return books
+
+
