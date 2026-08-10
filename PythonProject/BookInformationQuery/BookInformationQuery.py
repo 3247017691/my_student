@@ -59,3 +59,10 @@ app = FastAPI(
     description="一个简单的图书馆图书信息查询API",
     version="1.0.0"
 )
+
+class Book(BaseModel):
+    id: int
+    name: str
+    author: str
+    price: float
+    stock: int
