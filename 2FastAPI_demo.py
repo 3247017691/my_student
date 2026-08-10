@@ -6,10 +6,9 @@ from pydantic import BaseModel
 app = FastAPI()
 
 class User(BaseModel):
-    id: str
+    id: int
     name: str
     age: int | None = None
-
 
 @app.get("/users", summary="查询所有用户", response_model=list[User])
 def read_users() -> list[User]:
