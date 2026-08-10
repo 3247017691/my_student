@@ -1,3 +1,4 @@
+from typing import List
 
 from fastapi import FastAPI
 from pydantic import BaseModel
@@ -10,12 +11,13 @@ class User(BaseModel):
     age: int | None = None
 
 
-@app.get("/users")
-def read_users():
+@app.get("/users", summary="查询所有用户", response_model=list[User])
+def read_users() -> list[User]:
+    print("查询所有用户")
     return [
-        {"id": "1", "name": "John", "age": 20},
-        {"id": "2", "name": "Jane", "age": 25},
-        {"id": "3", "name": "Jim", "age": 30}
+        User(id="1", name="John", age=20),
+        User(id="2", name="Jane", age=25),
+        User(id="3", name="Jim", age=30)
     ]
 
 if __name__ == '__main__':
